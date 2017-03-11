@@ -1,0 +1,54 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		// window.onload = function() {
+		// 	var c = document.getElementById("myCanvas");
+		// 	var ctx = c.getContext("2d");
+		// 	var img = document.getElementById("scream");
+		// 	var frame = document.getElementById("frame");
+		// 	ctx.drawImage(img, 0, 0, 300, 300);
+		// 	ctx.drawImage(frame, 0, 0, 300, 300);
+
+		// 	var imageUrl = c.toDataURL("image/jpeg");
+		// 	var a = document.getElementById("download");
+		// 	a.href = imageUrl;
+
+		// 	var a_href = $('#download').attr('href');
+		// 	var url_convert = a_href.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+		// 	$('#download').attr('href',url_convert);
+		// 	$('#download').attr("download", "DS132_profile.jpg")
+		// }
+		function upload(input) {
+			var url = input.value
+			var fr = new FileReader()
+        	fr.onload = function () {
+        		var img = new Image()
+            	img.src = fr.result
+            	img.onload = function() {
+            		var frame = new Image()
+            		frame.src = "ds132_frame.png"
+            		frame.onload = function() {	
+            			var c = document.getElementById("myCanvas")
+            			var ctx = c.getContext("2d")
+            			ctx.drawImage(img, 0, 0, 600, 600)
+            			// ctx.drawImage(frame, 0, 0, 600, 600)
+            			var imageUrl = c.toDataURL("image/jpeg")
+            			//var result = document.getElementById("result")
+            			//result.src = imageUrl
+            			alert(imageUrl)
+            		}
+            	}
+        	}
+        	fr.readAsDataURL(input.files[0]);
+		}
+	</script>
+</head>
+<body>
+	browse : <input type="file" id="upload" accept="image/*" onchange="upload(this)"><br>
+	preview : 
+	<canvas id="myCanvas" width="600" height="600" style="border:1px solid #000000;"></canvas><br>
+	reslut : <img id="result" width="600" height="600">
+	<!-- <a id="download">download</a> -->
+</body>
+</html>
