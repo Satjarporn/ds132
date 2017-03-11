@@ -27,7 +27,8 @@
             	img.src = fr.result
             	img.onload = function() {
             		var frame = new Image()
-            		frame.src = "https://8080-dot-2296704-dot-devshell.appspot.com/ds132_frame.png"
+            		//frame.src = "https://8080-dot-2296704-dot-devshell.appspot.com/ds132_frame.png" // dev
+            		frame.src = "https://ds132-161220.appspot.com" //prod
             		frame.onload = function() {	
             			var c = document.getElementById("myCanvas")
             			var ctx = c.getContext("2d")
