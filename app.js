@@ -14,10 +14,9 @@
 'use strict';
 
 const express = require('express');
-app.use(express.static('public'));
 
 const app = express();
-
+app.use(express.static('public'));
 
 if (module === require.main) {
   // [START server]
