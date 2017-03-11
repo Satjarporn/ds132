@@ -27,12 +27,12 @@
             	img.src = fr.result
             	img.onload = function() {
             		var frame = new Image()
-            		frame.src = "ds132_frame.png"
+            		frame.src = "https://8080-dot-2296704-dot-devshell.appspot.com/ds132_frame.png"
             		frame.onload = function() {	
             			var c = document.getElementById("myCanvas")
             			var ctx = c.getContext("2d")
             			ctx.drawImage(img, 0, 0, 600, 600)
-            			// ctx.drawImage(frame, 0, 0, 600, 600)
+            			ctx.drawImage(frame, 0, 0, 600, 600)
             			var imageUrl = c.toDataURL("image/jpeg")
             			//var result = document.getElementById("result")
             			//result.src = imageUrl
