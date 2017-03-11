@@ -36,9 +36,15 @@
             			var imageUrl = c.toDataURL("image/jpeg")
             			var result = document.getElementById("result")
             			result.src = imageUrl
-            			//alert(imageUrl)
+
             			var result = document.getElementById("download")
             			download.href = imageUrl
+            			
+            			var a_href = $('#download').attr('href');
+						var url_convert = a_href.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+						$('#download').attr('href',url_convert);
+						$('#download').attr("download", "CU100_profile.jpg")
+            			
             		}
             	}
         	}
