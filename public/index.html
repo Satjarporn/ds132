@@ -39,23 +39,27 @@
 
             			var result = document.getElementById("download")
             			download.href = imageUrl
-            			
+
             			var a_href = $('#download').attr('href');
 						var url_convert = a_href.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
 						$('#download').attr('href',url_convert);
-						$('#download').attr("download", "CU100_profile.jpg")
+						$('#download').attr("download", "DS132_profile.jpg")
             			
             		}
             	}
         	}
         	fr.readAsDataURL(input.files[0]);
 		}
-	</script>
+	</script> 
+	<style type="text/css">
+		#myCanvas {
+			display: none;
+		}
+	</style>
 </head>
 <body>
 	browse : <input type="file" id="upload" accept="image/*" onchange="upload(this)"><br>
-	preview : 
-	<canvas id="myCanvas" width="1600" height="1600" style="border:1px solid #000000;" display></canvas><br>
+	<canvas id="myCanvas" width="1600" height="1600" style="border:1px solid #000000;"></canvas><br>
 	result : <img id="result" download="DS132_profile.jpg" width="600" height="600">
 	<a id="download">download</a>
 </body>
